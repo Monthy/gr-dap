@@ -1,0 +1,32 @@
+------------------------------------------------------------------
+-
+-  GR-dap - Dial-A-Protection
+-  Por Pedro García aka Monthy <ermonthy@gmail.com>
+-
+-  versión 0.1.0 - 05 Agosto del 2014
+-		por Monthy
+-
+------------------------------------------------------------------
+
+(I) Introducción
+--------------------------------------------
+GR-dap es un visor de protecciones de juegos, como ruletas del 
+Monkey Island o cartas de Alone in the Dark 2 o texto oculto en 
+manuales como el de Indiana Jones y la Última Cruzada.
+
+
+(II) Compilar el programa
+--------------------------------------------
+Vea el fichero: INSTALL.txt
+
+
+(III) Otras características
+--------------------------------------------
+ - Posibilidad de ver 2, 3 y 4 ruletas
+ - Visor de la protección del Alone in the dark 2 (cartas)
+ - Visor de texto oculto como el del Indiana Jones y la Última Cruzada.
+
+
+-----------------------------------
+Monthy <ermonthy@gmail.com>
+http://www.gr-lida.org/

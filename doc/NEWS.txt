@@ -1,0 +1,12 @@
+
+-  NEWS
+-----------------------------------
+version (DD-MM-AAAA)
+
+0.1.0 (05-08-2014)
+ - First Public Version :D
+
+-----------------------------------
+Monthy <ermonthy@gmail.com>
+http://www.gr-lida.org/
+

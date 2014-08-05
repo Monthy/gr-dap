@@ -1,0 +1,3 @@
+A los desarrolladores de Trolltech ( http://trolltech.com/ ) por facilitar el desarrollo multiplataforma de GR-dap gracias a sus librerías Qt4.
+
+A los de The OSDaB Project ( http://osdab.42cows.org/ ) por la Clase para manejar archivos Zip.

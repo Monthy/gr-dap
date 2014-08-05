@@ -1,0 +1,42 @@
+<RCC>
+  <qresource prefix="/">
+    <file>idiomas/gr-dap_en_EN.qm</file>
+    <file>idiomas/gr-dap_es_ES.qm</file>
+    <file>images/gr-dap.png</file>
+    <file>images/visor.png</file>
+    <file>images/tab_close.png</file>
+    <file>img16/acercad.png</file>
+    <file>img16/aplicar.png</file>
+    <file>img16/applications.png</file>
+    <file>img16/ayuda.png</file>
+    <file>img16/bullet_black.png</file>
+    <file>img16/cancelar.png</file>
+    <file>img16/carpeta_0.png</file>
+    <file>img16/carpeta_1.png</file>
+    <file>img16/cartas.png</file>
+    <file>img16/categorias.png</file>
+    <file>img16/cerrar.png</file>
+    <file>img16/editar.png</file>
+    <file>img16/fit_to_win.png</file>
+    <file>img16/floppy_2.png</file>
+    <file>img16/go-back.png</file>
+    <file>img16/go-down.png</file>
+    <file>img16/go-next.png</file>
+    <file>img16/go-up.png</file>
+    <file>img16/imagen.png</file>
+    <file>img16/informacion.png</file>
+    <file>img16/limpiar.png</file>
+    <file>img16/list_add.png</file>
+    <file>img16/list_remove.png</file>
+    <file>img16/nuevo.png</file>
+    <file>img16/rotar.png</file>
+    <file>img16/ruleta.png</file>
+    <file>img16/sinimg.png</file>
+    <file>img16/visor.png</file>
+    <file>img16/zoom.png</file>
+    <file>img16/zoom_in.png</file>
+    <file>img16/zoom_out.png</file>
+    <file>img24/gr-dap.png</file>
+    <file>img24/sinimg.png</file>
+  </qresource>
+</RCC>
