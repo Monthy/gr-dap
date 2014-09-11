@@ -1192,7 +1192,7 @@
     <string>Ayuda</string>
    </property>
    <property name="statusTip">
-    <string>Muestra la ayuda del GR-lida</string>
+    <string>Muestra la ayuda del GR-dap</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
