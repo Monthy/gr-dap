@@ -83,7 +83,7 @@
            </size>
           </property>
           <property name="pixmap">
-           <pixmap resource="../res/gr-lida.qrc">:/img16/informacion.png</pixmap>
+           <pixmap resource="../res/gr-dap.qrc">:/img16/informacion.png</pixmap>
           </property>
          </widget>
         </item>
@@ -105,7 +105,7 @@
            <string>Cerrar info</string>
           </property>
           <property name="icon">
-           <iconset resource="../res/gr-lida.qrc">
+           <iconset resource="../res/gr-dap.qrc">
             <normaloff>:/images/tab_close.png</normaloff>:/images/tab_close.png</iconset>
           </property>
           <property name="iconSize">
@@ -180,7 +180,7 @@
           <string>Cerrar</string>
          </property>
          <property name="icon">
-          <iconset resource="../res/gr-lida.qrc">
+          <iconset resource="../res/gr-dap.qrc">
            <normaloff>:/img16/cerrar.png</normaloff>:/img16/cerrar.png</iconset>
          </property>
          <property name="autoRaise">
@@ -206,7 +206,7 @@
           <string>Abrir</string>
          </property>
          <property name="icon">
-          <iconset resource="../res/gr-lida.qrc">
+          <iconset resource="../res/gr-dap.qrc">
            <normaloff>:/img16/carpeta_1.png</normaloff>:/img16/carpeta_1.png</iconset>
          </property>
          <property name="autoRaise">
@@ -278,7 +278,7 @@
              <string>Acercar</string>
             </property>
             <property name="icon">
-             <iconset resource="../res/gr-lida.qrc">
+             <iconset resource="../res/gr-dap.qrc">
               <normaloff>:/img16/zoom_in.png</normaloff>:/img16/zoom_in.png</iconset>
             </property>
             <property name="autoRepeat">
@@ -307,7 +307,7 @@
              <string>Alejar</string>
             </property>
             <property name="icon">
-             <iconset resource="../res/gr-lida.qrc">
+             <iconset resource="../res/gr-dap.qrc">
               <normaloff>:/img16/zoom_out.png</normaloff>:/img16/zoom_out.png</iconset>
             </property>
             <property name="autoRepeat">
@@ -336,7 +336,7 @@
              <string>Zoom normal</string>
             </property>
             <property name="icon">
-             <iconset resource="../res/gr-lida.qrc">
+             <iconset resource="../res/gr-dap.qrc">
               <normaloff>:/img16/zoom.png</normaloff>:/img16/zoom.png</iconset>
             </property>
             <property name="autoRaise">
@@ -449,7 +449,7 @@
                <string>Imágen anterior</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/go-back.png</normaloff>:/img16/go-back.png</iconset>
               </property>
               <property name="autoRepeat">
@@ -478,7 +478,7 @@
                <string>Imágen siguiente</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/go-next.png</normaloff>:/img16/go-next.png</iconset>
               </property>
               <property name="autoRepeat">
@@ -548,7 +548,7 @@
                <string>Reiniciar</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/rotar.png</normaloff>:/img16/rotar.png</iconset>
               </property>
               <property name="autoRaise">
@@ -795,7 +795,7 @@
                <string>Reiniciar</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/rotar.png</normaloff>:/img16/rotar.png</iconset>
               </property>
               <property name="autoRaise">
@@ -893,7 +893,7 @@
                <string>Reiniciar</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/rotar.png</normaloff>:/img16/rotar.png</iconset>
               </property>
               <property name="autoRaise">
@@ -991,7 +991,7 @@
                <string>Reiniciar</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/rotar.png</normaloff>:/img16/rotar.png</iconset>
               </property>
               <property name="autoRaise">
@@ -1089,7 +1089,7 @@
                <string>Reiniciar</string>
               </property>
               <property name="icon">
-               <iconset resource="../res/gr-lida.qrc">
+               <iconset resource="../res/gr-dap.qrc">
                 <normaloff>:/img16/rotar.png</normaloff>:/img16/rotar.png</iconset>
               </property>
               <property name="autoRaise">
@@ -1120,7 +1120,7 @@
           <string>Visor texto oculto</string>
          </property>
          <property name="icon">
-          <iconset resource="../res/gr-lida.qrc">
+          <iconset resource="../res/gr-dap.qrc">
            <normaloff>:/img16/visor.png</normaloff>:/img16/visor.png</iconset>
          </property>
          <property name="checkable">
@@ -1146,7 +1146,7 @@
           </size>
          </property>
          <property name="icon">
-          <iconset resource="../res/gr-lida.qrc">
+          <iconset resource="../res/gr-dap.qrc">
            <normaloff>:/img16/applications.png</normaloff>:/img16/applications.png</iconset>
          </property>
          <property name="popupMode">
@@ -1167,7 +1167,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../res/gr-lida.qrc">
+    <iconset resource="../res/gr-dap.qrc">
      <normaloff>:/img16/informacion.png</normaloff>:/img16/informacion.png</iconset>
    </property>
    <property name="text">
@@ -1182,7 +1182,7 @@
   </action>
   <action name="btn_ayuda">
    <property name="icon">
-    <iconset resource="../res/gr-lida.qrc">
+    <iconset resource="../res/gr-dap.qrc">
      <normaloff>:/img16/ayuda.png</normaloff>:/img16/ayuda.png</iconset>
    </property>
    <property name="text">
@@ -1203,7 +1203,7 @@
   </action>
   <action name="btn_acercade">
    <property name="icon">
-    <iconset resource="../res/gr-lida.qrc">
+    <iconset resource="../res/gr-dap.qrc">
      <normaloff>:/img16/acercad.png</normaloff>:/img16/acercad.png</iconset>
    </property>
    <property name="text">
@@ -1224,7 +1224,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../res/gr-lida.qrc">
+    <iconset resource="../res/gr-dap.qrc">
      <normaloff>:/img16/fit_to_win.png</normaloff>:/img16/fit_to_win.png</iconset>
    </property>
    <property name="text">
@@ -1268,8 +1268,7 @@
   <tabstop>btn_menu</tabstop>
  </tabstops>
  <resources>
-  <include location="../res/gr-lida.qrc"/>
-  <include location="../res/gr-lida.qrc"/>
+  <include location="../res/gr-dap.qrc"/>
  </resources>
  <connections/>
 </ui>
