@@ -556,7 +556,7 @@ void GrDap::cargarArchivo(QString filename)
 		{
 			QString str, strm;
 			settings.beginGroup("ruletas");
-				for(int i = 0; i < 4; ++i)
+				for(int i = 0; i < 5; ++i)
 				{
 					QString ids = fGrl->IntToStr(i);
 					config.insert("ruleta_"+ ids, settings.value("ruleta_"+ ids, "").toString() );
