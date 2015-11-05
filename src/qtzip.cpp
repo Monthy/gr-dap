@@ -161,24 +161,6 @@ bool QtZip::abrirZip(const QString file, const QString pwd)
 	return true;
 }
 
-bool QtZip::extractZip(const QString file, const QString out, const QString pwd)
-{
-	abrirZip(file, pwd);
-
-	if( isZipOpen )
-	{
-		ec_uz = uz.extractAll(out);
-		if( ec_uz != UnZip::Ok )
-		{
-			QMessageBox::information(0, "QtZip", tr("Incapaz de extraer el archivo") +": "+ uz.formatError(ec_uz).toLatin1() );
-			uz.closeArchive();
-			return false;
-		}
-		return true;
-	}
-	return true;
-}
-
 QStringList QtZip::listaZip(bool show_dir)
 {
 	QList<QString> listaZip;
@@ -188,57 +170,6 @@ QStringList QtZip::listaZip(bool show_dir)
 			listaZip << hash_uz[i].path;
 	}
 	return listaZip;
-}
-
-void QtZip::listaZipTreeWidget(QTreeWidget *myTreeWidget, bool show_dir)
-{
-	if( isZipOpen && !hash_uz.isEmpty() )
-	{
-		myTreeWidget->clear();
-		myTreeWidget->headerItem()->setText(0, "Filename");
-		myTreeWidget->headerItem()->setText(1, "Size");
-		myTreeWidget->headerItem()->setText(2, "Ratio");
-		myTreeWidget->headerItem()->setText(3, "CRC32");
-		myTreeWidget->headerItem()->setText(4, "Encrypted");
-		myTreeWidget->headerItem()->setText(5, "path");
-
-		for(int i = 0; i < count_uz; ++i)
-		{
-			if( !hash_uz[i].isDir || show_dir )
-			{
-				QTreeWidgetItem *item = new QTreeWidgetItem(myTreeWidget);
-	//			item->setIcon(0, QIcon("") );
-				item->setText(0, hash_uz[i].filename  );
-				item->setText(1, hash_uz[i].size      );
-				item->setText(2, hash_uz[i].ratio     );
-				item->setText(3, hash_uz[i].crc32     );
-				item->setText(4, hash_uz[i].encrypted );
-				item->setText(5, hash_uz[i].path      );
-				item->setText(6, QString::number(i)   );
-			}
-		}
-	}
-}
-
-void QtZip::listaZipListWidget(QListWidget *myListWidget, bool show_dir)
-{
-	if( isZipOpen && !hash_uz.isEmpty() )
-	{
-		myListWidget->clear();
-
-		for(int i = 0; i < count_uz; ++i)
-		{
-			if( !hash_uz[i].isDir || show_dir )
-			{
-				QListWidgetItem *item = new QListWidgetItem(myListWidget);
-	//			item->setIcon(QIcon( m_scaled ));
-				item->setText( hash_uz[i].filename );
-				item->setData(Qt::UserRole  , hash_uz[i].path    );
-				item->setData(Qt::UserRole+1, QString::number(i) );
-				item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDragEnabled);
-			}
-		}
-	}
 }
 
 stQtZip QtZip::getFileInfo(QString filename)
@@ -289,9 +220,4 @@ QPixmap QtZip::loadImagen(QString filename)
 	QPixmap pixmap;
 	pixmap.loadFromData( loadData(filename) );
 	return pixmap;
-}
-
-QBitmap QtZip::loadImagenBitmap(QString filename)
-{
-	return QBitmap( loadImagen(filename) );
 }

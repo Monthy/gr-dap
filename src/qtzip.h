@@ -55,17 +55,12 @@ public:
 	~QtZip();
 
 	bool abrirZip(const QString file, const QString pwd = "");
-	bool extractZip(const QString file, const QString out, const QString pwd = "");
-
 	QStringList listaZip(bool show_dir = false);
-	void listaZipTreeWidget(QTreeWidget *myTreeWidget, bool show_dir = false);
-	void listaZipListWidget(QListWidget *myListWidget, bool show_dir = false);
 
 	QString getCommentZip(){return comentarioZip;}
 	stQtZip getFileInfo(QString filename);
 	QString loadTexto(QString filename);
 	QPixmap loadImagen(QString filename);
-	QBitmap loadImagenBitmap(QString filename);
 
 	bool isZipOpen;
 
