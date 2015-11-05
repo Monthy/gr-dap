@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	stGrlDir grlDir;
 	grlDir.Home = fGrl.GRlidaHomePath();
 
-	QSettings settings(grlDir.Home +"GR-lida.conf", QSettings::IniFormat);
+	QSettings settings(grlDir.Home +"GR-dap.conf", QSettings::IniFormat);
 	settings.beginGroup("GR-dap");
 		QString IdiomaSelect = settings.value("IdiomaSelect", "es_ES").toString();
 	settings.endGroup();
