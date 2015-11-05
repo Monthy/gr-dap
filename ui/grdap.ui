@@ -725,6 +725,12 @@
             </property>
             <item>
              <widget class="QLabel" name="lb_d">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <weight>75</weight>
@@ -823,6 +829,12 @@
             </property>
             <item>
              <widget class="QLabel" name="lb_c">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <weight>75</weight>
@@ -921,6 +933,12 @@
             </property>
             <item>
              <widget class="QLabel" name="lb_b">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <weight>75</weight>
@@ -1019,6 +1037,12 @@
             </property>
             <item>
              <widget class="QLabel" name="lb_a">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <weight>75</weight>
@@ -1268,6 +1292,7 @@
   <tabstop>btn_menu</tabstop>
  </tabstops>
  <resources>
+  <include location="../res/gr-dap.qrc"/>
   <include location="../res/gr-dap.qrc"/>
  </resources>
  <connections/>

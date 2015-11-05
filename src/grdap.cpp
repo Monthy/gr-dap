@@ -561,6 +561,7 @@ void GrDap::cargarArchivo(QString filename)
 					QString ids = fGrl->IntToStr(i);
 					config.insert("ruleta_"+ ids, settings.value("ruleta_"+ ids, "").toString() );
 					config.insert("ruleta_"+ ids +"_mask", settings.value("ruleta_"+ ids +"_mask", "").toString() );
+					config.insert("ruleta_"+ ids +"_name", settings.value("ruleta_"+ ids +"_name", "").toString() );
 
 					str = strm = "";
 					if( !config["ruleta_"+ ids].isEmpty() )
@@ -586,6 +587,10 @@ void GrDap::cargarArchivo(QString filename)
 			ui->slider_rotar_b->setValue(0);
 			ui->slider_rotar_c->setValue(0);
 			ui->slider_rotar_d->setValue(0);
+			ui->lb_a->setText(!config["ruleta_1_name"].isEmpty() ? config["ruleta_1_name"] : "Ruleta A");
+			ui->lb_b->setText(!config["ruleta_2_name"].isEmpty() ? config["ruleta_2_name"] : "Ruleta B");
+			ui->lb_c->setText(!config["ruleta_3_name"].isEmpty() ? config["ruleta_3_name"] : "Ruleta C");
+			ui->lb_d->setText(!config["ruleta_4_name"].isEmpty() ? config["ruleta_4_name"] : "Ruleta D");
 		}
 		else if( config["info_type"] == "cartas_aitd2" )
 		{
