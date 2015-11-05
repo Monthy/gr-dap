@@ -46,6 +46,9 @@ public:
 	explicit GrDap(QWidget *parent = 0);
 	~GrDap();
 
+	void setAssociation(QString ext, QString desc, QString ico);
+	void clearAssociation(QString ext);
+
 	void cargarArchivo(QString filename);
 	void cargarImagenes(QStringList images, int index, bool directo = true);
 
@@ -79,7 +82,6 @@ private:
 	bool isInicio, isZip, visor_show;
 	int num_img_pagina;
 
-	bool setAssociation(QString ext, QString desc, QString ico);
 	void cargarConfig();
 	void guardarConfig();
 	QPixmap loadPixmap(QString filename);

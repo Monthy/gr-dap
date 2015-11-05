@@ -24,6 +24,7 @@
 
 #include <QApplication>
 #include <QTranslator>
+#include <QMessageBox>
 
 #include "grdap.h"
 
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
 	QSettings settings(grlDir.Home +"GR-dap.conf", QSettings::IniFormat);
 	settings.beginGroup("GR-dap");
 		QString IdiomaSelect = settings.value("IdiomaSelect", "es_ES").toString();
+		bool PrimeraVez = settings.value("Primeravez", true).toBool();
 	settings.endGroup();
 
 	if( !translator.load(grlDir.Home +"idiomas/gr-dap_"+ IdiomaSelect +".qm") )
@@ -51,6 +53,53 @@ int main(int argc, char *argv[])
 	args.takeFirst(); // elimina el nombre del ejecutable
 
 	GrDap w;
+
+	bool isOkReg = false;
+	if (PrimeraVez)
+	{
+		QMessageBox msgBox(0);
+		msgBox.setIcon(QMessageBox::Question);
+		msgBox.setWindowTitle(QObject::tr("¿Registrar extensión?"));
+		msgBox.setText(QObject::tr("¿Deseas registrar las extensiones .dap y dapz?\nDe esta forma podras abir dichos archivos al hacer doble clic sobre ellos."));
+		msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::NoToAll);
+		msgBox.setDefaultButton(QMessageBox::Save);
+		msgBox.setButtonText(QMessageBox::Yes, QObject::tr("Si"));
+		msgBox.setButtonText(QMessageBox::No, QObject::tr("No"));
+		msgBox.setButtonText(QMessageBox::NoToAll, QObject::tr("No, recordar decision"));
+
+		switch (msgBox.exec())
+		{
+			case QMessageBox::Yes:
+				isOkReg = true;
+			break;
+			case QMessageBox::No:
+				isOkReg = false;
+			break;
+			case QMessageBox::NoToAll:
+			{
+				isOkReg = false;
+				PrimeraVez = false;
+			}
+			break;
+		}
+
+		settings.beginGroup("GR-dap");
+			settings.setValue("Primeravez", PrimeraVez);
+		settings.endGroup();
+	}
+
+	if (args.contains("--regdap") || isOkReg)
+	{
+		w.setAssociation("dap" , "Dial-A-Protection"    , "1");
+		w.setAssociation("dapz", "Dial-A-Protection Zip", "2");
+		args.removeAt(args.indexOf("--regdap"));
+	}
+
+	if (args.contains("--unregdap"))
+	{
+		w.clearAssociation("dap");
+		args.removeAt(args.indexOf("--unregdap"));
+	}
 
 	if( !args.isEmpty() && args.count() > 0 )
 	{

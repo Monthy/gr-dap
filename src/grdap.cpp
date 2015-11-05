@@ -137,13 +137,19 @@ void GrDap::dragEnterEvent(QDragEnterEvent *event)
 	event->accept();
 }
 
-bool GrDap::setAssociation(QString ext, QString desc, QString ico)
+void GrDap::setAssociation(QString ext, QString desc, QString ico)
 {
-//	FileAssoc::clearAssociation(ext);
 	if( !FileAssoc::checkAssociation(ext) )
-		return FileAssoc::setAssociation(ext, desc, "GR-dap", ico);
-	else
-		return false;
+	{
+		if (FileAssoc::setAssociation(ext, desc, "GR-dap", ico))
+			FileAssoc::refreshExplorer();
+	}
+}
+
+void GrDap::clearAssociation(QString ext)
+{
+	if (FileAssoc::clearAssociation(ext))
+		FileAssoc::refreshExplorer();
 }
 
 void GrDap::cargarConfig()
@@ -184,12 +190,6 @@ void GrDap::cargarConfig()
 	ui->btn_info->setChecked( grdCfg.show_info );
 	ui->frame_info->setVisible( grdCfg.show_info );
 	ui->verticalLayout_frame_gv->addWidget(grdapView);
-
-	bool isDap  = setAssociation("dap" , "Dial-A-Protection"    , "1");
-	bool isDapz = setAssociation("dapz", "Dial-A-Protection Zip", "2");
-
-	if( isDap || isDapz )
-		FileAssoc::refreshExplorer();
 
 	img_ext.clear();
 	img_ext << "*.bmp" << "*.gif" << "*.jpg" << "*.jpeg" << "*.png" << "*.pbm" << "*.pgm" << "*.ppm" << "*.tif" << "*.tiff" << "*.xbm" << "*.xpm" << "*.svg";
