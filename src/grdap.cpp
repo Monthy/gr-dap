@@ -814,7 +814,7 @@ void GrDap::on_btn_acercade_triggered()
 	QString str_info_ad = "";
 	str_info_ad.append("<p style=\"font-size:18pt; font-weight:600;\">GR-dap v"+ fGrl->versionGrd() +"</p>");
 	str_info_ad.append("<p style=\"font-size:10pt;\">"+ tr("Diseñado y programado por") +": <b>Pedro A. Garcia Rosado</b> "+ tr("alias") +" <b>Monthy</b></p>");
-	str_info_ad.append("<p style=\"font-size:10pt;\">"+ tr("Visor de protecciones de juegos") +", "+ tr("Ruletas del Monkey Island") +"<br />"+ tr("Cartas del Alone in the Dark 2") +"<br />"+ tr("Texto oculto en el manual de Indiana Jones y la Última Cruzada") +"</p>");
+	str_info_ad.append("<p style=\"font-size:10pt;\">"+ tr("Visor de protecciones de juegos") +", "+ tr("Ruletas del tipo Monkey Island") +"<br />"+ tr("Cartas del tipo Alone in the Dark 2") +"<br />"+ tr("Texto oculto en el manual del tipo Indiana Jones y la Última Cruzada") +"</p>");
 	str_info_ad.append("<p style=\"font-size:10pt;\"><a href=\"http://www.gr-lida.org/\" style=\"text-decoration:none;\">http://www.gr-lida.org/</a></p>");
 
 	lbad_info->setText(str_info_ad);
