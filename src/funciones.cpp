@@ -177,7 +177,7 @@ QString Funciones::GRlidaHomePath()
 	bool isWinOrMac = false;
 	stDirApp = "";
 
-	if( QFile::exists(QDir::currentPath() +"/GR-lida.conf") )
+	if( QFile::exists(QDir::currentPath() +"/GR-dap.conf") )
 		stDirApp = QDir::currentPath() +"/";
 	else {
 		#ifdef Q_OS_WIN32

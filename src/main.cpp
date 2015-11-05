@@ -71,15 +71,14 @@ int main(int argc, char *argv[])
 		{
 			case QMessageBox::Yes:
 				isOkReg = true;
+				PrimeraVez = false;
 			break;
 			case QMessageBox::No:
 				isOkReg = false;
 			break;
 			case QMessageBox::NoToAll:
-			{
 				isOkReg = false;
 				PrimeraVez = false;
-			}
 			break;
 		}
 
