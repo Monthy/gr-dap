@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -75,10 +75,10 @@ public:
 	~Funciones();
 
 // Versión del GR-dap
-	QString versionGrd(){return "0.1.0";}
+	QString versionGrd(){return "0.2.0";}
 
 // Convierte de número a texto
-	QString	IntToStr(int num);
+	QString	intToStr(int num);
 // Devuelve un QColor desde un QStringList o QString
 	QColor getColor(QStringList color);
 	QColor getColor(QString color);
@@ -87,16 +87,16 @@ public:
 // Obtiene el Hash del archivo
 	QString getHashFile(QString filename, TipoHash hash = hashSha1);
 // Comprueba si un directorio existe y sino lo crea
-	bool comprobarDirectorio(QString nameDir, bool info = false);
+	bool comprobarDirectorio(QString dir, bool info = false);
 
 // Devuelve el directorio que usa el GR-lida
-	QString GRlidaHomePath();
-	QString DirApp(){ return stDirApp; }
+	QString homePath();
+	QString dirApp(){ return stDirApp; }
 // Devuelve el directorio del Theme a usar
-	QString Theme(){ return ":/"; }
+	QString theme(){ return stTheme; }
 
 private:
-	QString stDirApp;
+	QString stDirApp, stTheme, stOS;
 
 };
 

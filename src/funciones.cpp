@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,8 @@
 
 Funciones::Funciones()
 {
-	stDirApp = GRlidaHomePath();
+	stOS     = "win";
+	stDirApp = homePath();
 }
 
 Funciones::~Funciones()
@@ -35,7 +36,7 @@ Funciones::~Funciones()
 }
 
 // Convierte de número a texto
-QString Funciones::IntToStr(int num)
+QString Funciones::intToStr(int num)
 {
 	return QVariant(num).toString();
 }
@@ -45,13 +46,13 @@ QColor Funciones::getColor(QStringList color)
 {
 	int r = 0; int g = 0; int b = 0; int a = 255;
 
-	if( color.isEmpty() )
+	if (color.isEmpty())
 		color << "0" << "0" << "0";
 
-	if( color.size() < 4 )
+	if (color.size() < 4)
 	{
 		int pos = color.size();
-		for(int i = pos; i < 3; ++i)
+		for (int i = pos; i < 3; ++i)
 			color.insert(i, "0");
 		color.insert(3, "255");
 	}
@@ -66,7 +67,7 @@ QColor Funciones::getColor(QStringList color)
 
 QColor Funciones::getColor(QString color)
 {
-	return getColor( color.split(",") );
+	return getColor(color.split(","));
 }
 
 // Obtiene información del archivo
@@ -74,7 +75,7 @@ stFileInfo Funciones::getInfoFile(QString filename, TipoHash hash)
 {
 	stFileInfo info;
 
-	if( filename.isEmpty() )
+	if (filename.isEmpty())
 	{
 		info.Drive    = "";
 		info.Path     = "";
@@ -90,36 +91,39 @@ stFileInfo Funciones::getInfoFile(QString filename, TipoHash hash)
 		info.Sha1     = "";
 		info.Md5      = "";
 	} else {
-		QFileInfo fi( filename );
+		QFileInfo fi(filename);
+
 		#ifdef Q_OS_WIN32
-			info.Drive = filename.left(2) +"\\";
+			info.Drive = filename.left(2) +"/";
 		#else
 			info.Drive = "/";
 		#endif
-		if( fi.absolutePath().endsWith("/") || fi.absolutePath().endsWith("\\") )
-			info.Path = QDir::toNativeSeparators( fi.absolutePath() );
+
+		if (fi.absolutePath().endsWith("/"))
+			info.Path = fi.absolutePath();
 		else
-			info.Path = QDir::toNativeSeparators( fi.absolutePath().append("/") );
+			info.Path = fi.absolutePath().append("/");
+
 		info.FilePath = info.Path + fi.fileName();
 		info.Name     = fi.baseName();
 		info.NameExt  = fi.fileName();
 		info.cExt     = "."+ fi.completeSuffix().toLower();
 		info.Ext      = "."+ fi.suffix().toLower();
-		info.Size     = IntToStr( fi.size() );
+		info.Size     = intToStr(fi.size());
 		info.Exists   = fi.exists();
-		info.isDir = fi.isDir();
+		info.isDir    = fi.isDir();
 
-		if( hash == hashCrc32 || hash == hashAll )
+		if (hash == hashCrc32 || hash == hashAll)
 			info.Crc32 = getHashFile(filename, hashCrc32);
 		else
 			info.Crc32 = "00000000";
 
-		if( hash == hashSha1 || hash == hashAll )
+		if (hash == hashSha1 || hash == hashAll)
 			info.Sha1 = getHashFile(filename, hashSha1);
 		else
 			info.Sha1 = "";
 
-		if( hash == hashMd5 || hash == hashAll )
+		if (hash == hashMd5 || hash == hashAll)
 			info.Md5 = getHashFile(filename, hashMd5);
 		else
 			info.Md5 = "";
@@ -131,21 +135,21 @@ stFileInfo Funciones::getInfoFile(QString filename, TipoHash hash)
 // Obtiene el Hash del archivo
 QString Funciones::getHashFile(QString filename, TipoHash hash)
 {
-	if( hash == hashCrc32 )
+	if (hash == hashCrc32)
 	{
 		Crc32Qt crc;
 		return crc.getCRC32toString(filename);
 	} else {
 		QCryptographicHash::Algorithm tipoAlgorithm = QCryptographicHash::Sha1;
-		if( hash == hashMd5 )
+		if (hash == hashMd5)
 			tipoAlgorithm = QCryptographicHash::Md5;
 		else
 			tipoAlgorithm = QCryptographicHash::Sha1;
 
 		QCryptographicHash crypto(tipoAlgorithm);
-		QFile file( filename );
+		QFile file(filename);
 		file.open(QFile::ReadOnly);
-		while( !file.atEnd() )
+		while (!file.atEnd())
 			crypto.addData(file.read(8192));
 		file.close();
 
@@ -154,45 +158,53 @@ QString Funciones::getHashFile(QString filename, TipoHash hash)
 }
 
 // Comprueba si un directorio existe y sino lo crea
-bool Funciones::comprobarDirectorio(QString nameDir, bool info)
+bool Funciones::comprobarDirectorio(QString dir, bool info)
 {
-	if( !nameDir.isEmpty() )
+	if (!dir.isEmpty())
 	{
 		QDir directorio;
-		if( directorio.exists( nameDir ) )
+		if (directorio.exists(dir))
 			return true;
 		else {
-			if( info )
+			if (info)
 				return false;
 			else
-				return directorio.mkpath( nameDir );
+				return directorio.mkpath(dir);
 		}
 	} else
 		return false;
 }
 
 // Devuelve el directorio que usa el GR-lida
-QString Funciones::GRlidaHomePath()
+QString Funciones::homePath()
 {
+	QDir dirGrl;
 	bool isWinOrMac = false;
-	stDirApp = "";
+	stDirApp    = "";
+	stTheme     = ":/";
 
-	if( QFile::exists(QDir::currentPath() +"/GR-dap.conf") )
+	if (QFile::exists(QDir::currentPath() +"/GR-dap.conf"))
 		stDirApp = QDir::currentPath() +"/";
 	else {
 		#ifdef Q_OS_WIN32
 			isWinOrMac = true;
+			stOS = "win";
 		#else
 			#ifdef Q_OS_MAC
 				isWinOrMac = true;
+				stOS = "mac";
 			#else
 				isWinOrMac = false;
+				stOS = "linux";
 			#endif
 		#endif
 
-		if( isWinOrMac )
+		if (isWinOrMac)
+		{
 			stDirApp = QDir::homePath() +"/GR-lida/";
-		else
+			if (dirGrl.exists(QDir::homePath() +"/.gr-lida/"))
+				dirGrl.rename(QDir::homePath() +"/.gr-lida/", QDir::homePath() +"/GR-lida/");
+		} else
 			stDirApp = QDir::homePath() +"/.gr-lida/";
 	}
 

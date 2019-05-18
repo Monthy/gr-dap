@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	Funciones fGrl;
 	QTranslator translator;
 	stGrlDir grlDir;
-	grlDir.Home = fGrl.GRlidaHomePath();
+	grlDir.Home = fGrl.dirApp();
 
 	QSettings settings(grlDir.Home +"GR-dap.conf", QSettings::IniFormat);
 	settings.beginGroup("GR-dap");
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		bool PrimeraVez = settings.value("Primeravez", true).toBool();
 	settings.endGroup();
 
-	if( !translator.load(grlDir.Home +"idiomas/gr-dap_"+ IdiomaSelect +".qm") )
+	if (!translator.load(grlDir.Home +"idiomas/gr-dap_"+ IdiomaSelect +".qm"))
 		translator.load(":/idiomas/gr-dap_"+ IdiomaSelect +".qm");
 	app.installTranslator(&translator);
 
@@ -100,10 +100,10 @@ int main(int argc, char *argv[])
 		args.removeAt(args.indexOf("--unregdap"));
 	}
 
-	if( !args.isEmpty() && args.count() > 0 )
+	if (!args.isEmpty() && args.count() > 0)
 	{
 		filename = args.join(" ");
-		if( QFile::exists(filename) )
+		if (QFile::exists(filename))
 			w.cargarArchivo(filename);
 	}
 
