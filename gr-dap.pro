@@ -11,13 +11,14 @@ win32|mac {
 	TARGET = gr-dap
 }
 TEMPLATE = app
-DESTDIR += bin
+
 
 # Output directory
-UI_DIR += src
-MOC_DIR += build
-RCC_DIR += build
-OBJECTS_DIR += build
+DESTDIR += bin
+UI_DIR += build/ui
+MOC_DIR += build/moc
+RCC_DIR += build/rcc
+OBJECTS_DIR += build/obj
 
 # Compiler, tools and options
 QT += core gui
@@ -39,31 +40,21 @@ SOURCES += src/main.cpp \
 	src/grdap.cpp \
 	src/grdapview.cpp \
 	src/funciones.cpp \
-	src/qtzip.cpp
+	src/grdap_acercad.cpp
 
 HEADERS  += src/grdap.h \
 	src/grdapview.h \
 	src/funciones.h \
-	src/qtzip.h \
-	3rdparty/fileassociateqt.h
+	src/grdap_acercad.h
 
-FORMS += ui/grdap.ui
+FORMS += ui/grdap.ui \
+	ui/grdap_acercad.ui
 
 # 3rdparty Files
-HEADERS += 3rdparty/osdab-zip/unzip.h \
-	3rdparty/osdab-zip/unzip_p.h \
-	3rdparty/osdab-zip/zip.h \
-	3rdparty/osdab-zip/zipentry_p.h \
-	3rdparty/osdab-zip/zipglobal.h \
-	3rdparty/osdab-zip/zip_p.h
+HEADERS += 3rdparty/crc32qt.h \
+	3rdparty/fileassociateqt.h
 
-SOURCES += 3rdparty/osdab-zip/unzip.cpp \
-	3rdparty/osdab-zip/zip.cpp \
-	3rdparty/osdab-zip/zipglobal.cpp
-
-LIBS += -lz
-
-HEADERS += 3rdparty/crc32qt.h
+include(3rdparty/Qt7zip/Qt7zip.pri)
 # FIN 3rdparty
 
 TRANSLATIONS += res/idiomas/gr-dap_es_ES.ts \

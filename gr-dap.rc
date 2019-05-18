@@ -5,8 +5,8 @@ IDI_ICON2		ICON		DISCARDABLE	"res\\icon_dap.ico"
 IDI_ICON3		ICON		DISCARDABLE	"res\\icon_dapz.ico"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,0,0
- PRODUCTVERSION 0,1,0,0
+ FILEVERSION 0,2,0,0
+ PRODUCTVERSION 0,2,0,0
  FILEFLAGS 0x0L
  FILEFLAGSMASK 0x3fL
  FILEOS 0x00040004L
@@ -19,12 +19,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", ""
             VALUE "FileDescription", "GR-dap - Dial-A-Protection"
-            VALUE "FileVersion", "0.1.0.0"
-            VALUE "LegalCopyright", "Copyright (C) 2014"
+            VALUE "FileVersion", "0.2.0.0"
+            VALUE "LegalCopyright", "Copyright (C) 2014-2019"
             VALUE "InternalName", "gr-dap.exe"
             VALUE "OriginalFilename", "GR-dap.exe"
             VALUE "ProductName", "GR-dap"
-            VALUE "ProductVersion", "0.1.0.0"
+            VALUE "ProductVersion", "0.2.0.0"
         END
     END
     BLOCK "VarFileInfo"
