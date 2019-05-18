@@ -1,8 +1,9 @@
 
 -  Dependencies / Dependencias
 -----------------------------------
-  * Qt4
+  * Qt4/Qt5
   * Zlib
+  * Source 7-zip 19.00 o p7zip 16.02
 
 -  Basic installation
 -----------------------------------

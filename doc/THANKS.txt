@@ -1,3 +1,9 @@
 A los desarrolladores de Trolltech ( http://trolltech.com/ ) por facilitar el desarrollo multiplataforma de GR-dap gracias a sus librerías Qt4.
 
 A los de The OSDaB Project ( http://osdab.42cows.org/ ) por la Clase para manejar archivos Zip.
+
+A los desarrolladores de Qt ( https://www.qt.io/ ) por facilitar el desarrollo multiplataforma.
+
+A los desarrolladores de 7-zip ( https://www.7-zip.org/ ) y P7ZIP ( http://p7zip.sourceforge.net/ ) por el genial compresor/descompresor.
+
+A los desarrolladores de YACReader ( https://github.com/YACReader ) por copiar parte de su wrapper 7-zip descaradamente :)

@@ -3,6 +3,10 @@
 -----------------------------------
 version (DD-MM-AAAA)
 
+0.2.0 (19-05-2019)
+ - Cambio de OSDaB Zip a 7-zip
+ - Soporte de archivos 7z, zip, tar y rar gracias a 7-zip
+
 0.1.0 (05-08-2014)
  - First Public Version :D
 

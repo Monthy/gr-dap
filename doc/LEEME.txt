@@ -3,7 +3,7 @@
 -  GR-dap - Dial-A-Protection
 -  Por Pedro García aka Monthy <ermonthy@gmail.com>
 -
--  versión 0.1.0 - 05 Agosto del 2014
+-  versión 0.2.0 - 19 Mayo de 2019
 -		por Monthy
 -
 ------------------------------------------------------------------
