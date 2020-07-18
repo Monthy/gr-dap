@@ -3,7 +3,7 @@
  * Qt7zip
  *
  * This file is part of Qt7zip is a C++ wrapper for accessing the 7-zip API
- * Copyright (C) 2019 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2019-2020 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -231,6 +231,9 @@ static QVariant getProperty(CMyComPtr<IInArchive> archive, quint32 index, PROPID
 
 Qt7zip::Qt7zip(QObject *parent) : QObject(parent),
 	sevenzLib(0), is_load_7zlib(false), is_open(false)
+#ifdef Q_OS_UNIX
+	, rarLib(0)
+#endif
 {
 	szInterface = new SevenZipInterface;
 	is_load_7zlib = loadLib();
@@ -251,11 +254,17 @@ void Qt7zip::closeArchive()
 {
 // always close the archive!
 	if (szInterface->archive)
+	{
 		szInterface->archive->Close();
+
+#ifdef Q_OS_UNIX
+		szInterface->archive->AddRef();
+#endif
+	}
 }
 
 
-bool Qt7zip::loadLib(const QString &fileName)
+bool Qt7zip::loadLib(const QString &dir)
 {
 // LOAD library
 // TODO check if this works in OSX (7z.so instead of 7z.dylib)
@@ -263,42 +272,54 @@ bool Qt7zip::loadLib(const QString &fileName)
 // fix2: rename 7z.so to 7z.dylib
 
 	is_load_7zlib = true;
+	QString path_lib     = "";
 	QString path_lib_7z  = "";
 	QString path_lib_rar = "";
 
 #if defined Q_OS_UNIX
 	#if defined Q_OS_MAC
-		path_lib_7z  = QCoreApplication::applicationDirPath() +"/p7zip/7z"; // .so, .dylib
-		path_lib_rar = QCoreApplication::applicationDirPath() +"/p7zip/Codecs/Rar"; // .so, .dylib
+		if (!dir.isEmpty())
+			path_lib = dir;
+		else
+			path_lib = QCoreApplication::applicationDirPath();
+
+		path_lib_7z  = path_lib +"/p7zip/7z"; // .so, .dylib
+		path_lib_rar = path_lib +"/p7zip/Codecs/Rar"; // .so, .dylib
 	#else
-		path_lib_7z  = QString(LIBDIR) +"/p7zip/7z.so";
-		path_lib_rar = QString(LIBDIR) +"/p7zip/Codecs/Rar.so";
+		if (!dir.isEmpty())
+			path_lib = dir;
+		else
+			path_lib = QString(LIBDIR);
+
+		path_lib_7z  = path_lib +"/p7zip/7z.so";
+		path_lib_rar = path_lib +"/p7zip/Codecs/Rar.so";
 	#endif
 #else
-		path_lib_7z = QCoreApplication::applicationDirPath() +"/7z"; // .dll
+	if (!dir.isEmpty())
+		path_lib = dir;
+	else
+		path_lib = QCoreApplication::applicationDirPath();
+
+	path_lib_7z = path_lib +"/7z"; // .dll
 #endif
 
-	if (!fileName.isEmpty())
-		path_lib_7z = fileName;
-
 	if (sevenzLib == 0)
-	{
 		sevenzLib = new QLibrary(path_lib_7z);
-
-	#if defined Q_OS_UNIX
-		rarLib = new QLibrary(path_lib_rar);
-	#endif
-	} else {
+	else {
 		if (sevenzLib->isLoaded())
 			sevenzLib->unload();
 		sevenzLib->setFileName(path_lib_7z);
+	}
 
-	#if defined Q_OS_UNIX
+#if defined Q_OS_UNIX
+	if (rarLib == 0)
+		rarLib = new QLibrary(path_lib_rar);
+	else {
 		if (rarLib->isLoaded())
 			rarLib->unload();
 		rarLib->setFileName(path_lib_rar);
-	#endif
 	}
+#endif
 
 	if (!sevenzLib->load())
 	{
@@ -314,17 +335,20 @@ bool Qt7zip::loadLib(const QString &fileName)
 		}
 
 	#ifdef Q_OS_UNIX
-		szInterface->createObjectFuncRar = reinterpret_cast<Func_CreateObject>(rarLib->resolve("CreateObject"));
-		if (!szInterface->createObjectFuncRar)
-			PrintError("Can not get CreateObject (rar)");
+		if (rarLib->load())
+		{
+			szInterface->createObjectFuncRar = reinterpret_cast<Func_CreateObject>(rarLib->resolve("CreateObject"));
+			if (!szInterface->createObjectFuncRar)
+				PrintError("Can not get CreateObject (rar)");
 
-		szInterface->getMethodPropertyFuncRar = reinterpret_cast<Func_GetMethodProperty>(rarLib->resolve("GetMethodProperty"));
-		if (!szInterface->getMethodPropertyFuncRar)
-			PrintError("Can not get GetMethodProperty (rar)");
+			szInterface->getMethodPropertyFuncRar = reinterpret_cast<Func_GetMethodProperty>(rarLib->resolve("GetMethodProperty"));
+			if (!szInterface->getMethodPropertyFuncRar)
+				PrintError("Can not get GetMethodProperty (rar)");
 
-		szInterface->getNumberOfMethodsFuncRar = reinterpret_cast<Func_GetNumberOfMethods>(rarLib->resolve("GetNumberOfMethods"));
-		if (!szInterface->getNumberOfMethodsFuncRar)
-			PrintError("Can not get GetNumberOfMethods (rar)");
+			szInterface->getNumberOfMethodsFuncRar = reinterpret_cast<Func_GetNumberOfMethods>(rarLib->resolve("GetNumberOfMethods"));
+			if (!szInterface->getNumberOfMethodsFuncRar)
+				PrintError("Can not get GetNumberOfMethods (rar)");
+		}
 	#endif
 	}
 
