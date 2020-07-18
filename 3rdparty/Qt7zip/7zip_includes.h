@@ -3,7 +3,7 @@
  * Qt7zip
  *
  * This file is part of Qt7zip is a C++ wrapper for accessing the 7-zip API
- * Copyright (C) 2019 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2019-2020 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

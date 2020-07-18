@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2020 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

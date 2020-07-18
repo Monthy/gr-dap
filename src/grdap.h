@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2020 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -128,7 +128,7 @@ private slots:
 	void on_cbx_carta_top_activated(int index);
 	void on_cbx_carta_bot_activated(int index);
 
-// Visor de imagenes
+// Visor de Imágenes
 	void on_cbx_img_pagina_activated(int index);
 	void on_btn_img_back_clicked();
 	void on_btn_img_next_clicked();
