@@ -3,7 +3,7 @@
  * GR-dap by Monthy
  *
  * This file is part of GR-dap is Dial-A-Protection
- * Copyright (C) 2014-2019 Pedro A. Garcia Rosado Aka Monthy
+ * Copyright (C) 2014-2020 Pedro A. Garcia Rosado Aka Monthy
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -83,6 +83,12 @@ void GrDapView::dragMoveEvent(QDragMoveEvent *event)
 	event->acceptProposedAction();
 }
 */
+
+void GrDapView::clearScene()
+{
+	scene->clear();
+}
+
 void GrDapView::setNewScene(int scene_width, int scene_height, bool ogl)
 {
 	listItems.clear();
@@ -236,8 +242,8 @@ void GrDapView::posVisorChanged(QPointF v_pos, bool visor)
 	{
 		img_pos_x = v_pos.x();
 		img_pos_y = v_pos.y();
-		int sep_scene_x = (scene->width() - listItems.value(0)->pixmap().width()) / 2;
-		int sep_scene_y = (scene->height() - listItems.value(0)->pixmap().height()) / 2;
+		qreal sep_scene_x = (scene->width() - listItems.value(0)->pixmap().width()) / 2;
+		qreal sep_scene_y = (scene->height() - listItems.value(0)->pixmap().height()) / 2;
 		QImage img_src = listItems.value(0)->pixmap().toImage();
 		QImage img_final(QSize(visor_img.width(), visor_img.height()), QImage::Format_ARGB32_Premultiplied);
 
@@ -246,7 +252,7 @@ void GrDapView::posVisorChanged(QPointF v_pos, bool visor)
 		painter.fillRect(img_final.rect(), Qt::transparent);
 		painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
 		painter.fillRect(0, 0, visor_img.width(), visor_height, Qt::white);
-		painter.drawImage(0, 0, img_src, img_pos_x - sep_scene_x, img_pos_y - sep_scene_y, visor_img.width(), visor_height);
+		painter.drawImage(0, 0, img_src, static_cast<int>(img_pos_x - sep_scene_x), static_cast<int>(img_pos_y - sep_scene_y), visor_img.width(), visor_height);
 		painter.setCompositionMode(visor_mode);
 		painter.fillRect(0, 0, visor_img.width(), visor_height, visor_color);
 		painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
