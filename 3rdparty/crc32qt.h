@@ -111,14 +111,14 @@ public:
 		quint32 crc32 = 0;
 		qint64 i = 0, n = 0;
 
-		if( !file.open(QIODevice::ReadOnly) )
+		if (!file.open(QIODevice::ReadOnly))
 			return "";
 
 		crc32 = 0xffffffff;
 
-		while((n = file.read(buf, 1)) > 0)
+		while ((n = file.read(buf, 1)) > 0)
 		{
-			for(i = 0; i < n; i++)
+			for (i = 0; i < n; i++)
 			{
 				crc32 = (crc32 >> 8) ^ crc32_tab[(crc32 ^ buf[i]) & 0xff];
 			}
@@ -133,8 +133,8 @@ public:
 
 	QString getCRC32toString(QString filePath)
 	{
-		QString str_crc32( getCRC32(filePath) );
-		if( str_crc32.isEmpty() )
+		QString str_crc32(getCRC32(filePath));
+		if (str_crc32.isEmpty())
 			return "00000000";
 		else
 			return str_crc32;

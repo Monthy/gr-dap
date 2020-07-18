@@ -210,30 +210,30 @@ void GrDap::cargarConfig()
 
 // Efectos para el visor de texto oculto: Indiana Jones y la Última Cruzada
 	ui->cbx_visor_mode->clear();
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceOver")     , QPainter::CompositionMode_SourceOver     );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationOver"), QPainter::CompositionMode_DestinationOver);
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Clear")          , QPainter::CompositionMode_Clear          );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Source")         , QPainter::CompositionMode_Source         );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Destination")    , QPainter::CompositionMode_Destination    );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceIn")       , QPainter::CompositionMode_SourceIn       );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationIn")  , QPainter::CompositionMode_DestinationIn  );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceOut")      , QPainter::CompositionMode_SourceOut      );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationOut") , QPainter::CompositionMode_DestinationOut );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceAtop")     , QPainter::CompositionMode_SourceAtop     );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationAtop"), QPainter::CompositionMode_DestinationAtop);
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Xor")            , QPainter::CompositionMode_Xor            );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Plus")           , QPainter::CompositionMode_Plus           );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Multiply")       , QPainter::CompositionMode_Multiply       );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Screen")         , QPainter::CompositionMode_Screen         );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Overlay")        , QPainter::CompositionMode_Overlay        );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Darken")         , QPainter::CompositionMode_Darken         );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Lighten")        , QPainter::CompositionMode_Lighten        );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("ColorDodge")     , QPainter::CompositionMode_ColorDodge     );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("ColorBurn")      , QPainter::CompositionMode_ColorBurn      );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("HardLight")      , QPainter::CompositionMode_HardLight      );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SoftLight")      , QPainter::CompositionMode_SoftLight      );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Difference")     , QPainter::CompositionMode_Difference     );
-	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Exclusion")      , QPainter::CompositionMode_Exclusion      );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceOver")                   , QPainter::CompositionMode_SourceOver         );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationOver")              , QPainter::CompositionMode_DestinationOver    );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Clear")                        , QPainter::CompositionMode_Clear              );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Source")                       , QPainter::CompositionMode_Source             );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Destination")                  , QPainter::CompositionMode_Destination        );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceIn")                     , QPainter::CompositionMode_SourceIn           );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationIn")                , QPainter::CompositionMode_DestinationIn      );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceOut")                    , QPainter::CompositionMode_SourceOut          );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationOut")               , QPainter::CompositionMode_DestinationOut     );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SourceAtop")                   , QPainter::CompositionMode_SourceAtop         );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("DestinationAtop")              , QPainter::CompositionMode_DestinationAtop    );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Xor")                          , QPainter::CompositionMode_Xor                );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Plus")                         , QPainter::CompositionMode_Plus               );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Multiply")                     , QPainter::CompositionMode_Multiply           );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Screen")                       , QPainter::CompositionMode_Screen             );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Overlay")                      , QPainter::CompositionMode_Overlay            );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Darken")                       , QPainter::CompositionMode_Darken             );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Lighten")                      , QPainter::CompositionMode_Lighten            );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("ColorDodge")                   , QPainter::CompositionMode_ColorDodge         );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("ColorBurn")                    , QPainter::CompositionMode_ColorBurn          );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("HardLight")                    , QPainter::CompositionMode_HardLight          );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("SoftLight")                    , QPainter::CompositionMode_SoftLight          );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Difference")                   , QPainter::CompositionMode_Difference         );
+	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Exclusion")                    , QPainter::CompositionMode_Exclusion          );
 	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Op SourceOrDestination")       , QPainter::RasterOp_SourceOrDestination       );
 	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Op SourceAndDestination")      , QPainter::RasterOp_SourceAndDestination      );
 	ui->cbx_visor_mode->addItem(QIcon(fGrl->theme() +"img16/imagen.png"), tr("Op SourceXorDestination")      , QPainter::RasterOp_SourceXorDestination      );
@@ -570,7 +570,7 @@ void GrDap::cargarArchivo(QString filename)
 
 		QString zip_coment = "";
 		if (isZip)
-			zip_coment = "<br>"+ z_file->getComment();
+			zip_coment = (z_file->getComment() != "[Content]") ? "<br>"+ z_file->getComment() : "";
 
 		ui->txt_info->setHtml("<b>"+ tr("Título del juego") +":</b> "+ config["info_title"] +"<br>"
 						"<b>"+ tr("Autor") +":</b> "+ config["info_autor"] +"<br>"
@@ -788,11 +788,10 @@ void GrDap::on_btn_abrir_clicked()
 				tr("Imágenes soportadas") +" - ("+ ext_img +");;"+
 				tr("Comic o manuales") +" - ("+ ext_comic +");;"+
 				tr("Archivos comprimidos") +" - ("+ ext_z +");;"+
-				tr("Todos los archivo") +" (*)", 0);
+				tr("Todos los archivos") +" (*)", 0);
 
 	if (!archivo.isEmpty() && QFile::exists(archivo))
 		cargarArchivo(archivo);
-//		cargarArchivo(QDir::toNativeSeparators(archivo));
 }
 
 void GrDap::on_slider_zoom_valueChanged(int value)
@@ -902,7 +901,7 @@ void GrDap::on_cbx_carta_bot_activated(int index)
 		grdapView->setPixmapItem(0, loadPixmap(stDir + ui->cbx_carta_bot->itemData(index).toString()));
 }
 
-// Visor de imagenes
+// Visor de Imágenes
 void GrDap::on_cbx_img_pagina_activated(int index)
 {
 	if (index > -1)
